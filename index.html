@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Distributed Data Management | Showcase</title>
+  <meta name="description" content="A premium showcase of Distributed Data Management course assignments by Stanzin Angmo — covering data engineering, federated systems, and ML pipelines." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon">⬡</span>
+        <span>DDM</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#assignments" class="nav-link">Assignments</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Hero Section ── -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="grid-lines"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        M.Tech · Distributed Systems · 2026
+      </div>
+      <h1 class="hero-title">
+        Distributed<br/>
+        <span class="gradient-text">Data Management</span>
+      </h1>
+      <p class="hero-subtitle">
+        An interactive showcase of data parsing, distributed databases,<br/>
+        exploratory analysis pipelines, and federated data architecture.
+      </p>
+      <div class="hero-actions">
+        <a href="#assignments" class="btn btn-primary" id="exploreBtn">
+          <span>Explore Assignments</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://github.com" target="_blank" class="btn btn-ghost" id="githubBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Assignments</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">12+</span>
+          <span class="stat-label">Experiments</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">Technologies</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ── About / Course Overview ── -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Course Overview</span>
+        <h2 class="section-title">What I Learned</h2>
+        <p class="section-desc">A deep dive into managing data at scale — from raw ingestion to distributed intelligence.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card" data-animate>
+          <div class="about-icon" style="background: linear-gradient(135deg,#6366f1,#8b5cf6);">
+            <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Data Engineering</h3>
+          <p>Mastering heterogeneous data ingestion — CSV, JSON, XML, binary formats, HTML scraping, and SQL/NoSQL CRUD operations with Python.</p>
+          <div class="about-tags">
+            <span>Pandas</span><span>SQLite</span><span>MongoDB</span>
+          </div>
+        </div>
+        <div class="about-card" data-animate>
+          <div class="about-icon" style="background: linear-gradient(135deg,#06b6d4,#0891b2);">
+            <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3>Federated Architecture</h3>
+          <p>Understanding distributed query processing, schema heterogeneity, mediator-wrapper patterns, and CAP theorem tradeoffs in modern data systems.</p>
+          <div class="about-tags">
+            <span>2PC Protocol</span><span>MVCC</span><span>Saga Pattern</span>
+          </div>
+        </div>
+        <div class="about-card" data-animate>
+          <div class="about-icon" style="background: linear-gradient(135deg,#f59e0b,#d97706);">
+            <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Exploratory Analysis</h3>
+          <p>Pre-processing pipelines with feature engineering, outlier detection, correlation heatmaps, and statistical analysis on real-world Indian water resource data.</p>
+          <div class="about-tags">
+            <span>NumPy</span><span>Seaborn</span><span>Sklearn</span>
+          </div>
+        </div>
+        <div class="about-card" data-animate>
+          <div class="about-icon" style="background: linear-gradient(135deg,#10b981,#059669);">
+            <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-4.96.44 2.5 2.5 0 01-2.96-3.08 3 3 0 01-.34-5.58 2.5 2.5 0 013.32-3.97A2.5 2.5 0 019.5 2"/><path d="M14.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 004.96.44 2.5 2.5 0 002.96-3.08 3 3 0 00.34-5.58 2.5 2.5 0 00-3.32-3.97A2.5 2.5 0 0014.5 2"/></svg>
+          </div>
+          <h3>Machine Learning</h3>
+          <p>Applying Linear Regression for predictive modeling with StandardScaler, train-test splits, and performance metrics (MSE, R² Score) on water-resource datasets.</p>
+          <div class="about-tags">
+            <span>LinearRegression</span><span>R² Score</span><span>MSE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Assignments Section ── -->
+  <section class="assignments" id="assignments">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Assignments Showcase</h2>
+        <p class="section-desc">Click on an assignment card to explore the full report, code, and experimental outputs.</p>
+      </div>
+      <div class="assignment-grid">
+
+        <!-- Lab 1 Card -->
+        <a href="lab1.html" class="assignment-card" id="lab1Card">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <div class="card-badge lab">Lab 01</div>
+            <div class="card-number">01</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Database &amp; Analysis Pipeline</h3>
+            <p class="card-subtitle">End-to-End Data Management</p>
+            <p class="card-desc">A comprehensive lab covering data parsing across multiple formats (CSV, XML, HTML, binary), NoSQL/SQL CRUD operations, EDA with visualization, and a Linear Regression ML model on Indian Water Resource data.</p>
+            <div class="card-tech">
+              <span>Python</span>
+              <span>Pandas</span>
+              <span>SQLite</span>
+              <span>MongoDB</span>
+              <span>Sklearn</span>
+              <span>Matplotlib</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-link">View Lab Report &amp; Code →</span>
+          </div>
+        </a>
+
+        <!-- Theory 1 Card -->
+        <a href="theory1.html" class="assignment-card" id="theory1Card">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <div class="card-badge theory">Theory 01</div>
+            <div class="card-number">02</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Federated Data Management</h3>
+            <p class="card-subtitle">Academic Research Report</p>
+            <p class="card-desc">A professional book-format chapter on Federated Data Management — covering distributed query processing, schema heterogeneity resolution, mediator-wrapper architecture, 2PC/Saga transactions, CAP theorem, security &amp; privacy, with real-world case studies.</p>
+            <div class="card-tech">
+              <span>LaTeX</span>
+              <span>TikZ</span>
+              <span>Academic Writing</span>
+              <span>Distributed Systems</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-link">Open Digital Report →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills Section ── -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Tech Stack</span>
+        <h2 class="section-title">Tools &amp; Technologies</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-item" data-animate>
+          <div class="skill-icon python">Py</div>
+          <span>Python</span>
+        </div>
+        <div class="skill-item" data-animate>
+          <div class="skill-icon pandas">Pd</div>
+          <span>Pandas</span>
+        </div>
+        <div class="skill-item" data-animate>
+          <div class="skill-icon sql">SQL</div>
+          <span>SQLite</span>
+        </div>
+        <div class="skill-item" data-animate>
+          <div class="skill-icon mongo">M</div>
+          <span>MongoDB</span>
+        </div>
+        <div class="skill-item" data-animate>
+          <div class="skill-icon sklearn">Sk</div>
+          <span>Scikit-learn</span>
+        </div>
+        <div class="skill-item" data-animate>
+          <div class="skill-icon latex">LaTeX</div>
+          <span>LaTeX</span>
+        </div>
+        <div class="skill-item" data-animate>
+          <div class="skill-icon np">Np</div>
+          <span>NumPy</span>
+        </div>
+        <div class="skill-item" data-animate>
+          <div class="skill-icon sns">Sns</div>
+          <span>Seaborn</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-icon">⬡</span>
+          <span>DDM Showcase</span>
+        </div>
+        <p class="footer-copy">© 2026 Distributed Data Management Showcase · Made with ❤️ by <strong>Stanzin Angmo</strong></p>
+        <div class="footer-links">
+          <a href="https://github.com" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
