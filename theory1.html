@@ -1,242 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Theory 01 — Federated Data Management | DDM Showcase</title>
-  <meta name="description" content="Theory Assignment 01: Academic book chapter on Federated Data Management — distributed queries, schema heterogeneity, CAP theorem, security &amp; real-world case studies." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Theory 01: Academic research report on Federated Data Management — mediator-wrapper architecture, schema heterogeneity, distributed query processing."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- ── Navigation ── -->
+  <!-- ── Navbar ── -->
   <nav class="navbar scrolled" id="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-icon">⬡</span>
-        <span>DDM</span>
-      </a>
+      <a href="index.html" class="nav-logo"><span class="logo-icon">⬡</span><span>DDM</span></a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#home" class="nav-link">Home</a></li>
-        <li><a href="index.html#about" class="nav-link">About</a></li>
-        <li><a href="index.html#assignments" class="nav-link">Assignments</a></li>
-        <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="index.html#home"        class="nav-link" data-i18n="nav_home">Home</a></li>
+        <li><a href="index.html#about"       class="nav-link" data-i18n="nav_about">About</a></li>
+        <li><a href="index.html#assignments" class="nav-link" data-i18n="nav_assignments">Assignments</a></li>
+        <li><a href="index.html#skills"      class="nav-link" data-i18n="nav_skills">Skills</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <!-- Language Selector -->
+      <div class="lang-selector">
+        <button class="lang-btn" id="langBtn" aria-label="Choose Language">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          <span id="langLabel">EN</span>
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-option active" data-lang="en"><span class="lang-flag">🌐</span><span class="lang-native">English</span><span class="lang-en">Default</span></button>
+          <div class="lang-divider"></div>
+          <button class="lang-option" data-lang="hi"><span class="lang-flag">🇮🇳</span><span class="lang-native">हिंदी</span><span class="lang-en">Hindi</span></button>
+          <button class="lang-option" data-lang="kn"><span class="lang-flag">🇮🇳</span><span class="lang-native">ಕನ್ನಡ</span><span class="lang-en">Kannada</span></button>
+          <button class="lang-option" data-lang="lad"><span class="lang-flag">🏔️</span><span class="lang-native">ལ་དྭགས</span><span class="lang-en">Ladakhi</span></button>
+          <button class="lang-option" data-lang="ml"><span class="lang-flag">🇮🇳</span><span class="lang-native">മലയാളം</span><span class="lang-en">Malayalam</span></button>
+          <button class="lang-option" data-lang="gu"><span class="lang-flag">🇮🇳</span><span class="lang-native">ગુજરાતી</span><span class="lang-en">Gujarati</span></button>
+          <button class="lang-option" data-lang="bn"><span class="lang-flag">🇮🇳</span><span class="lang-native">বাংলা</span><span class="lang-en">Bengali</span></button>
+          <button class="lang-option" data-lang="ur"><span class="lang-flag">🌙</span><span class="lang-native">اردو</span><span class="lang-en">Urdu</span></button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
   <!-- ── Inner Hero ── -->
-  <section class="inner-hero" style="background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(6,182,212,0.12), transparent), var(--bg-secondary);">
+  <section class="inner-hero">
     <a href="index.html" class="back-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      Back to Showcase
+      <span data-i18n="nav_home">Home</span>
     </a>
-    <div class="card-badge theory" style="margin-bottom:16px;">Theory 01</div>
-    <h1 class="inner-title">Federated <span style="background:linear-gradient(135deg,#06b6d4,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Data Management</span></h1>
-    <p class="inner-sub">Academic Book Chapter — Distributed Architectures, Query Processing &amp; Security</p>
+    <div class="card-badge theory" style="margin-bottom:16px;" data-i18n="card2_badge">Theory 01</div>
+    <h1 class="inner-title">Federated <span class="gradient-text">Data Management</span></h1>
+    <p class="inner-sub" data-i18n="card2_sub">Academic Research Report &amp; Architecture Analysis</p>
     <div class="inner-meta">
       <div class="meta-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <strong>2026</strong>
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <strong>LaTeX · TikZ · Academic Research</strong>
+      </div>
+      <div class="meta-item">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-        <strong>Book Chapter · 2026</strong>
-      </div>
-      <div class="meta-item">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <strong>LaTeX · TikZ · Academic Writing</strong>
-      </div>
-      <div class="meta-item">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <strong>7 Sections · 20+ References</strong>
+        <strong>8 Sections</strong>
       </div>
     </div>
   </section>
 
   <!-- ── Theory Content ── -->
   <div class="theory-content">
-    <div class="container" style="max-width:900px;">
+    <div class="container" style="max-width:880px;">
 
       <!-- Table of Contents -->
       <div class="toc-card">
-        <h3>📚 Table of Contents</h3>
+        <h3>Contents</h3>
         <div class="toc-list">
-          <div class="toc-item"><span>1</span><span>Introduction &amp; Distributed Data Management Overview</span></div>
-          <div class="toc-item"><span>2</span><span>Federated Data System Architecture</span></div>
-          <div class="toc-item"><span>3</span><span>Data and Schema Heterogeneity</span></div>
-          <div class="toc-item"><span>4</span><span>Global Schema &amp; Metadata Management</span></div>
-          <div class="toc-item"><span>5</span><span>Query Processing in Federated Systems</span></div>
-          <div class="toc-item"><span>6</span><span>Transaction &amp; Concurrency Management</span></div>
-          <div class="toc-item"><span>7</span><span>Security, CAP Theorem &amp; Real-World Case Studies</span></div>
+          <div class="toc-item"><span>01</span> Introduction &amp; Definitions</div>
+          <div class="toc-item"><span>02</span> Architectural Overview (Mediator-Wrapper)</div>
+          <div class="toc-item"><span>03</span> Distributed Query Processing</div>
+          <div class="toc-item"><span>04</span> Handling Schema Heterogeneity</div>
+          <div class="toc-item"><span>05</span> Distributed Transactions (2PC & Saga)</div>
+          <div class="toc-item"><span>06</span> Real-World Case Studies</div>
+          <div class="toc-item"><span>07</span> Security & Privacy Constraints</div>
+        </div>
+      </div>
+      
+      <!-- Theory Preview Image -->
+      <div class="output-section" style="margin-bottom: 40px;">
+        <div class="screenshot-card">
+          <div class="screenshot-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span class="screenshot-label">Compiled LaTeX output preview</span>
+          </div>
+          <img src="img_theory_preview.png" alt="Preview of Federated Data Management PDF showing architecture diagrams" loading="lazy" />
         </div>
       </div>
 
-      <!-- Section 1 -->
+      <!-- Content Sections -->
       <div class="theory-section">
-        <h2>1. Introduction</h2>
-        <p>Modern enterprises rarely operate with a single monolithic database. Instead, organizational data is distributed across multiple heterogeneous systems — relational databases, NoSQL stores, data lakes, cloud-hosted services, and legacy mainframe applications.</p>
+        <h2>01. Introduction</h2>
+        <p>A <strong>Federated Database System (FDBS)</strong> is a meta-database management system that transparently maps multiple autonomous database systems into a single federated database. Unlike a monolithic distributed database, the constituent databases in a federation are heterogeneous and retain local autonomy while participating in the federation.</p>
         <div class="insight-box">
-          <div class="insight-label">⬡ Key Insight — Definition</div>
-          <p><strong>Federated Data Management (FDM)</strong> provides an architectural paradigm for integrating diverse, autonomous data sources into a coherent, queryable whole <em>without</em> requiring physical data migration or centralization.</p>
+          <div class="insight-label">Key Challenge</div>
+          <p>Balancing global integration requirements with local database autonomy and heterogeneous data models.</p>
         </div>
-        <p>Several forces drive the adoption of federated data management: organizational mergers where data systems rarely share schemas, legacy system integration requirements, multi-cloud environments spanning AWS/Azure/GCP, and regulatory constraints like GDPR and HIPAA that prohibit data migration across jurisdictional boundaries.</p>
+      </div>
 
+      <div class="theory-section">
+        <h2>02. Architecture: Mediator-Wrapper Pattern</h2>
+        <p>Modern federated systems overwhelmingly employ the <strong>Mediator-Wrapper architectural pattern</strong> to abstract away underlying component database complexities.</p>
+        <div class="steps-list" style="margin:20px 0;">
+          <div class="step"><div class="step-num" style="background:rgba(245,158,11,0.15);color:#f59e0b;">M</div><div class="step-text"><strong>Mediator:</strong> The central component. It receives the global query, decomposes it into sub-queries tailored for specific data sources, orchestrates execution, and merges the distributed results.</div></div>
+          <div class="step"><div class="step-num" style="background:rgba(13,148,136,0.15);color:#0d9488;">W</div><div class="step-text"><strong>Wrapper:</strong> The translation layer sitting atop local databases. It translates generic mediator requests into local SQL (or NoSQL API calls) and formats returning local results into the global schema.</div></div>
+        </div>
+      </div>
+
+      <div class="theory-section">
+        <h2>03. Handling Schema Heterogeneity</h2>
+        <p>Before a query can be executed across sources, structural conflicts must be resolved. The textbook <em>Global-as-View (GAV)</em> and <em>Local-as-View (LAV)</em> approaches provide mathematical models for integration.</p>
         <div class="compare-table-wrap">
           <table class="compare-table">
             <thead>
+              <tr><th>Approach</th><th>Mechanism</th><th>Pros &amp; Cons</th></tr>
+            </thead>
+            <tbody>
               <tr>
-                <th>Criterion</th>
-                <th>Centralized</th>
-                <th>Distributed</th>
-                <th>Federated</th>
+                <td><strong>Global-as-View (GAV)</strong></td>
+                <td>Global schema is defined as a view over the local schemas.</td>
+                <td>Easier query processing, hard to add new dynamic sources.</td>
               </tr>
-            </thead>
-            <tbody>
-              <tr><td>Data Location</td><td>Single site</td><td>Multiple sites, same DBMS</td><td>Multiple sites, heterogeneous DBMS</td></tr>
-              <tr><td>Autonomy</td><td>None</td><td>Low</td><td>High — local systems retain control</td></tr>
-              <tr><td>Schema</td><td>Single global schema</td><td>Partitioned global schema</td><td>Virtual global schema over local schemas</td></tr>
-              <tr><td>Heterogeneity</td><td>None</td><td>Minimal</td><td>Full (data model, schema, platform)</td></tr>
-              <tr><td>Scalability</td><td>Vertical only</td><td>Horizontal</td><td>Horizontal + heterogeneous</td></tr>
-              <tr><td>Typical Use Case</td><td>Small/medium apps</td><td>Large homogeneous apps</td><td>Enterprise integration, data mesh</td></tr>
+              <tr>
+                <td><strong>Local-as-View (LAV)</strong></td>
+                <td>Local sources are defined as views over the global schema.</td>
+                <td>Easy to add new sources, complex query rewriting required.</td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- Section 2 -->
       <div class="theory-section">
-        <h2>2. Federated Data System Architecture</h2>
-        <p>The architecture of a federated database system (FDBS) defines how autonomous, heterogeneous data sources are interconnected and presented as a unified system. The key architectural elements include:</p>
+        <h2>04. Distributed Query Processing</h2>
+        <p>Querying an FDBS involves multiple phases. The execution engine must cost queries not just on CPU/Disk, but on network transfer costs between distributed nodes.</p>
+        <div class="code-block" style="margin-top:16px;">
+          <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang">Query Execution Plan (Conceptual)</span></div>
+          <pre><span class="kw">SELECT</span> p.name, m.diagnosis 
+<span class="kw">FROM</span> GlobalRegistry_PgSQL p 
+<span class="kw">JOIN</span> RegionalHospital_MongoDB m <span class="kw">ON</span> p.id = m.patient_id;
 
-        <div class="steps-list" style="margin-bottom:20px;">
-          <div class="step"><div class="step-num">●</div><div class="step-text"><strong>Component Database Systems (CDBS)</strong> — Individual pre-existing databases with their own data model, schema, and query language</div></div>
-          <div class="step"><div class="step-num">●</div><div class="step-text"><strong>Federation Layer</strong> — Middleware for schema mapping, query decomposition, result integration, and transaction coordination</div></div>
-          <div class="step"><div class="step-num">●</div><div class="step-text"><strong>Global (Federated) Schema</strong> — A virtual unified schema that users interact with, abstracting away source differences</div></div>
-          <div class="step"><div class="step-num">●</div><div class="step-text"><strong>Local Export Schemas</strong> — Subset of each component's schema exposed for federation access</div></div>
-        </div>
-
-        <div class="insight-box">
-          <div class="insight-label">⬡ Mediator-Wrapper Architecture</div>
-          <p>The <strong>mediator–wrapper</strong> pattern (Wiederhold, 1992) is the most widely adopted design. <strong>Wrappers</strong> translate native source interfaces into a canonical form; the <strong>Mediator</strong> performs schema integration, query decomposition, sub-query routing, and result merging. Adding a new data source requires implementing only a new wrapper — the mediator remains unchanged.</p>
-        </div>
-
-        <div class="compare-table-wrap">
-          <table class="compare-table">
-            <thead>
-              <tr><th>Feature</th><th>Tightly Coupled</th><th>Loosely Coupled</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Global Schema</td><td>Predefined by administrator</td><td>None; ad hoc integration</td></tr>
-              <tr><td>Administration</td><td>Centralized</td><td>Decentralized</td></tr>
-              <tr><td>Schema Evolution</td><td>Complex to manage</td><td>Flexible but user-burdened</td></tr>
-              <tr><td>Consistency</td><td>Strong</td><td>Eventual or best-effort</td></tr>
-              <tr><td>Autonomy</td><td>Moderate</td><td>High</td></tr>
-              <tr><td>Best For</td><td>Stable enterprise integration</td><td>Research, data exploration</td></tr>
-            </tbody>
-          </table>
+<span class="cm">-- Mediator Execution Plan:</span>
+<span class="cm">1. Semi-join filter sent to PostgreSQL (Wrapper A)</span>
+<span class="cm">2. Hash patient IDs in memory</span>
+<span class="cm">3. Send IN clause payload to MongoDB (Wrapper B)</span>
+<span class="cm">4. Hash-join results at Mediator node</span></pre>
         </div>
       </div>
 
-      <!-- Section 3 -->
-      <div class="theory-section">
-        <h2>3. Data and Schema Heterogeneity</h2>
-        <p>Heterogeneity is the defining challenge of federated data management. When data sources are designed independently, mismatches arise at every level: data models, schemas, data types, naming conventions, and semantics.</p>
-
-        <div class="compare-table-wrap">
-          <table class="compare-table">
-            <thead>
-              <tr><th>Conflict Type</th><th>Category</th><th>Example</th><th>Resolution Strategy</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Synonyms</td><td>Naming</td><td><code>emp_name</code> vs. <code>employee_name</code></td><td>Canonical naming via mapping table</td></tr>
-              <tr><td>Homonyms</td><td>Naming</td><td><code>address</code> (home) vs. <code>address</code> (office)</td><td>Disambiguation via context qualifiers</td></tr>
-              <tr><td>Table vs. Attribute</td><td>Structural</td><td>Phone table vs. phone_number column</td><td>Schema restructuring in global view</td></tr>
-              <tr><td>Missing Attributes</td><td>Structural</td><td>Source A has middle_name; B does not</td><td>NULL imputation or derived defaults</td></tr>
-              <tr><td>Data Type Mismatch</td><td>Type</td><td>INT vs. VARCHAR for zip codes</td><td>Type casting in wrappers</td></tr>
-              <tr><td>Unit Mismatch</td><td>Semantic</td><td>Price in USD vs. EUR</td><td>Conversion functions with metadata</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="insight-box">
-          <div class="insight-label">⬡ Schema Conflict Resolution</div>
-          <p>Resolving schema conflicts requires a combination of <strong>automated schema matching algorithms</strong>, <strong>domain expert review</strong>, and <strong>well-maintained metadata catalogues</strong>. No single technique is sufficient in isolation.</p>
-        </div>
-      </div>
-
-      <!-- Section 4 -->
-      <div class="theory-section">
-        <h2>4. Global Schema &amp; Metadata Management</h2>
-        <p>The global schema is the cornerstone of a tightly coupled federated system. Designing and maintaining it follows a multi-step integration process: Pre-integration → Correspondence Identification → Conflict Resolution → Merging &amp; Restructuring → Validation. The process is iterative — validation failures loop back to correspondence identification.</p>
-        <p>A federated system requires a rich <strong>metadata catalog</strong> storing: Schema Mappings, Data Source Registry (connection parameters &amp; capabilities), Statistics (cardinality estimates and access costs), Lineage and Provenance records, and Semantic Annotations (ontology mappings and business glossary terms).</p>
-      </div>
-
-      <!-- Section 5 -->
-      <div class="theory-section">
-        <h2>5. Query Processing in Federated Systems</h2>
-        <p>Federated query processing is significantly more complex than single-site execution. The pipeline involves 8 stages:</p>
-
-        <div class="steps-list" style="margin-bottom:20px;">
-          <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Global Query</strong> — User submits Federated SQL against the global schema</div></div>
-          <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Parsing &amp; Validation</strong> — Validate against the global schema definition</div></div>
-          <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Query Decomposition</strong> — Split into sub-queries with predicate &amp; projection pushdown</div></div>
-          <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Distributed Query Optimization</strong> — Cost-based plan selection (source selection, join ordering)</div></div>
-          <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Query Translation</strong> — Convert sub-queries to native languages (SQL, MongoDB pipeline, HTTP GET)</div></div>
-          <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Parallel Execution</strong> — Execute across all component sources concurrently</div></div>
-          <div class="step"><div class="step-num">7</div><div class="step-text"><strong>Result Integration</strong> — Join, union, and aggregate results from all sources at mediator</div></div>
-          <div class="step"><div class="step-num">8</div><div class="step-text"><strong>Final Result</strong> — Deliver unified result set to client</div></div>
-        </div>
-
-        <div class="insight-box">
-          <div class="insight-label">⬡ Modern Federated Query Engines</div>
-          <p>Modern engines such as <strong>Presto/Trino</strong>, <strong>Dremio</strong>, and <strong>Denodo</strong> employ cost-based optimization using statistics from the metadata catalog. They estimate network bytes transferred, CPU time, and I/O cost — selecting the plan with globally lowest estimated cost.</p>
-        </div>
-      </div>
-
-      <!-- Section 6 -->
-      <div class="theory-section">
-        <h2>6. Transaction &amp; Concurrency Management</h2>
-        <p>Global transactions spanning multiple component databases require careful coordination. The federation layer does not fully control local transaction managers — each component independently manages its own ACID properties.</p>
-
-        <div class="steps-list" style="margin-bottom:20px;">
-          <div class="step"><div class="step-num">2PC</div><div class="step-text"><strong>Two-Phase Commit Protocol</strong> — Phase 1: Coordinator sends PREPARE, participants vote COMMIT/ABORT. Phase 2: Coordinator broadcasts the unanimous decision. Limitation: blocking if coordinator fails between phases.</div></div>
-          <div class="step"><div class="step-num">Saga</div><div class="step-text"><strong>Saga Pattern</strong> — Decomposes long-running transactions into local transactions each with a <em>compensating transaction</em> for rollback. Suitable for microservice architectures where 2PC autonomy violations are unacceptable.</div></div>
-          <div class="step"><div class="step-num">MVCC</div><div class="step-text"><strong>Multi-Version Concurrency Control</strong> — Provides local read isolation without blocking writes. Global consistency requires additional coordination.</div></div>
-        </div>
-
-        <div class="insight-box">
-          <div class="insight-label">⬡ Local vs. Global Serializability</div>
-          <p>Each component DBMS independently enforces <strong>local serializability</strong>. However, locally serializable schedules do <em>not</em> automatically guarantee <strong>global serializability</strong>. Cross-site serialization anomalies can arise when global transactions interleave differently — making global concurrency control an open challenge.</p>
-        </div>
-      </div>
-
-      <!-- Section 7 -->
-      <div class="theory-section">
-        <h2>7. Security, CAP Theorem &amp; Case Studies</h2>
-        <p>Security in federated systems operates at multiple layers: authentication (OAuth 2.0, API keys per source), authorization (role-based access over export schemas), data masking for sensitive attributes, and audit logging for regulatory compliance (GDPR, HIPAA).</p>
-
-        <div class="insight-box" style="border-left-color:#06b6d4;">
-          <div class="insight-label" style="color:#67e8f9;">⬡ CAP Theorem</div>
-          <p>Federated systems must navigate the <strong>CAP Theorem</strong> tradeoff: <strong>Consistency</strong> (all nodes see the same data), <strong>Availability</strong> (every request receives a response), and <strong>Partition Tolerance</strong> (system continues operating despite network failures). Federated systems typically sacrifice strong consistency for availability and partition tolerance (AP systems), using eventual consistency and bounded staleness.</p>
-        </div>
-
-        <p><strong>Real-World Case Studies documented in the chapter:</strong></p>
-        <div class="steps-list" style="margin-top:12px;">
-          <div class="step"><div class="step-num">🏙️</div><div class="step-text"><strong>Smart City Energy Management</strong> — Federated integration of IoT sensor streams, billing databases, and grid management systems for real-time energy optimization across a metropolitan area</div></div>
-          <div class="step"><div class="step-num">🏥</div><div class="step-text"><strong>Medical Imaging Federation</strong> — Cross-hospital federation of DICOM imaging systems, EHR databases, and genomics repositories while maintaining HIPAA compliance and data sovereignty</div></div>
-        </div>
-      </div>
-
-      <!-- PDF Download -->
-      <div class="content-block" style="margin-top:40px; text-align:center;">
-        <h4>📘 Full Academic Report</h4>
-        <p style="color:var(--text-secondary); margin: 12px 0 20px; font-size:0.88rem;">The complete book chapter is available as a professionally typeset PDF, authored in LaTeX with TikZ architecture diagrams, insightbox callouts, and 20+ academic references.</p>
-        <a href="FEDERATED_DATA_MANAGEMENT.pdf" target="_blank" class="btn btn-primary" style="margin:0 auto; display:inline-flex;">
+      <!-- Action -->
+      <div class="content-block" style="margin-top:40px;text-align:center;">
+        <h4 style="margin-bottom:12px;">Full Research Report</h4>
+        <p style="margin-bottom:24px;">The complete LaTeX-typeset document includes deep dives into 2PC consistency models, CAP theorem implications, security, and case studies.</p>
+        <a href="FEDERATED_DATA_MANAGEMENT.pdf" target="_blank" class="btn btn-primary" style="display:inline-flex;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Open PDF Report
+          Download PDF Document
         </a>
       </div>
 
@@ -247,26 +176,13 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="logo-icon">⬡</span>
-          <span>DDM Showcase</span>
-        </div>
-        <p class="footer-copy">© 2026 Distributed Data Management Showcase · Made with ❤️ by <strong>Stanzin Angmo</strong></p>
-        <div class="footer-links">
-          <a href="index.html">← Back to Showcase</a>
-        </div>
+        <div class="footer-brand"><span class="logo-icon">⬡</span><span>DDM Showcase</span></div>
+        <p class="footer-copy" data-i18n="footer_txt">© 2026 Distributed Data Management Showcase · Made with ❤️ by Stanzin Angmo</p>
+        <div class="footer-links"><a href="index.html">← Back</a></div>
       </div>
     </div>
   </footer>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) navbar?.classList.add('scrolled');
-    });
-    const hamburger = document.getElementById('hamburger');
-    const navLinksEl = document.getElementById('navLinks');
-    hamburger?.addEventListener('click', () => navLinksEl?.classList.toggle('open'));
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

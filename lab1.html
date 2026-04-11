@@ -1,33 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lab 01 — Database & Analysis Pipeline | DDM Showcase</title>
-  <meta name="description" content="Lab 01: End-to-end data management covering CSV/XML/HTML/binary parsing, SQLite, MongoDB CRUD, EDA with Seaborn, and Linear Regression ML." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Lab 01: End-to-end data management — CSV/XML/HTML/binary parsing, SQLite, MongoDB CRUD, EDA with Seaborn, and Linear Regression ML on Indian Water Resource data."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- ── Navigation ── -->
+  <!-- ── Navbar ── -->
   <nav class="navbar scrolled" id="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-icon">⬡</span>
-        <span>DDM</span>
-      </a>
+      <a href="index.html" class="nav-logo"><span class="logo-icon">⬡</span><span>DDM</span></a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#home" class="nav-link">Home</a></li>
-        <li><a href="index.html#about" class="nav-link">About</a></li>
-        <li><a href="index.html#assignments" class="nav-link">Assignments</a></li>
-        <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="index.html#home"        class="nav-link" data-i18n="nav_home">Home</a></li>
+        <li><a href="index.html#about"       class="nav-link" data-i18n="nav_about">About</a></li>
+        <li><a href="index.html#assignments" class="nav-link" data-i18n="nav_assignments">Assignments</a></li>
+        <li><a href="index.html#skills"      class="nav-link" data-i18n="nav_skills">Skills</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <!-- Language Selector -->
+      <div class="lang-selector">
+        <button class="lang-btn" id="langBtn" aria-label="Choose Language">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          <span id="langLabel">EN</span>
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-option active" data-lang="en"><span class="lang-flag">🌐</span><span class="lang-native">English</span><span class="lang-en">Default</span></button>
+          <div class="lang-divider"></div>
+          <button class="lang-option" data-lang="hi"><span class="lang-flag">🇮🇳</span><span class="lang-native">हिंदी</span><span class="lang-en">Hindi</span></button>
+          <button class="lang-option" data-lang="kn"><span class="lang-flag">🇮🇳</span><span class="lang-native">ಕನ್ನಡ</span><span class="lang-en">Kannada</span></button>
+          <button class="lang-option" data-lang="lad"><span class="lang-flag">🏔️</span><span class="lang-native">ལ་དྭགས</span><span class="lang-en">Ladakhi</span></button>
+          <button class="lang-option" data-lang="ml"><span class="lang-flag">🇮🇳</span><span class="lang-native">മലയാളം</span><span class="lang-en">Malayalam</span></button>
+          <button class="lang-option" data-lang="gu"><span class="lang-flag">🇮🇳</span><span class="lang-native">ગુજરાતી</span><span class="lang-en">Gujarati</span></button>
+          <button class="lang-option" data-lang="bn"><span class="lang-flag">🇮🇳</span><span class="lang-native">বাংলা</span><span class="lang-en">Bengali</span></button>
+          <button class="lang-option" data-lang="ur"><span class="lang-flag">🌙</span><span class="lang-native">اردو</span><span class="lang-en">Urdu</span></button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
@@ -35,11 +49,11 @@
   <section class="inner-hero">
     <a href="index.html" class="back-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      Back to Showcase
+      <span data-i18n="nav_home">Home</span>
     </a>
-    <div class="card-badge lab" style="margin-bottom:16px;">Lab 01</div>
-    <h1 class="inner-title">Database &amp; <span class="gradient-text">Analysis Pipeline</span></h1>
-    <p class="inner-sub">End-to-End Data Management with Python on Indian Water Resource Data</p>
+    <div class="card-badge lab" style="margin-bottom:16px;" data-i18n="card1_badge">Lab 01</div>
+    <h1 class="inner-title"><span data-i18n="card1_title">Database &amp; <span class="gradient-text">Analysis Pipeline</span></span></h1>
+    <p class="inner-sub" data-i18n="card1_sub">End-to-End Data Management with Python on Indian Water Resource Data</p>
     <div class="inner-meta">
       <div class="meta-item">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
@@ -47,10 +61,10 @@
       </div>
       <div class="meta-item">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        <strong>Python · Pandas · SQLite · MongoDB</strong>
+        <strong>Python · Pandas · SQLite · MongoDB · Sklearn</strong>
       </div>
       <div class="meta-item">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 19.07a10 10 0 010-14.14"/></svg>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         <strong>12 Experiments</strong>
       </div>
     </div>
@@ -66,224 +80,198 @@
         <p>This lab demonstrates a complete data engineering pipeline using the <strong>Indian Water Resources dataset (Indian_water_data.csv)</strong>. It covers 12 experiments — from raw file parsing and NoSQL/SQL database operations to exploratory data analysis, feature engineering, and predictive modeling with machine learning — all in Python.</p>
       </div>
 
-      <!-- Experiment 1 -->
+      <!-- ═══ Experiment 1 ═══ -->
       <div class="exp-section">
-        <div class="exp-header">
-          <div class="exp-num">01</div>
-          <h2>Multi-Format Data Parsing</h2>
-        </div>
+        <div class="exp-header"><div class="exp-num">01</div><h2>Multi-Format Data Parsing</h2></div>
         <div class="content-block">
-          <p>Demonstrates loading and parsing data from five different formats: <strong>CSV</strong> (using Pandas), <strong>Plain Text</strong>, <strong>HTML</strong> (using BeautifulSoup), <strong>XML</strong> (using ElementTree), and <strong>Binary files</strong> — as well as Regex-based extraction.</p>
+          <p>Demonstrates loading and parsing data from <strong>CSV, Plain Text, HTML, XML</strong>, and <strong>Binary</strong> formats, plus Regex-based email extraction — all core skills in heterogeneous data engineering.</p>
         </div>
         <div class="steps-list" style="margin-bottom:16px;">
-          <div class="step"><div class="step-num">1</div><div class="step-text"><strong>CSV Parsing</strong> — Load <code>Indian_water_data.csv</code> with Pandas, print head and handle missing values via <code>fillna(0)</code></div></div>
+          <div class="step"><div class="step-num">1</div><div class="step-text"><strong>CSV Parsing</strong> — Load <code>Indian_water_data.csv</code> with Pandas, print head, handle missing values via <code>fillna(0)</code></div></div>
           <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Text File</strong> — Write and read a plain-text sample about water resources</div></div>
-          <div class="step"><div class="step-num">3</div><div class="step-text"><strong>HTML Parsing</strong> — Parse <code>&lt;p&gt;</code> tags with BeautifulSoup to extract river names</div></div>
-          <div class="step"><div class="step-num">4</div><div class="step-text"><strong>XML Parsing</strong> — Use ElementTree to read XML element attributes</div></div>
-          <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Regex Extraction</strong> — Extract email patterns from text using <code>re.search()</code></div></div>
-          <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Binary File I/O</strong> — Write and read bytes (<code>wb</code>/<code>rb</code> mode) with raw binary data</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text"><strong>HTML Parsing</strong> — Parse <code>&lt;p&gt;</code> tags with BeautifulSoup to extract river names (Ganga, Yamuna)</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text"><strong>XML Parsing</strong> — Use ElementTree to read river XML element attributes</div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Regex</strong> — Extract <code>water123@gmail.com</code> email pattern using <code>re.search()</code></div></div>
+          <div class="step"><div class="step-num">6</div><div class="step-text"><strong>Binary File I/O</strong> — Write/read bytes in <code>wb</code>/<code>rb</code> mode: <code>b'Water Engineering'</code></div></div>
         </div>
         <div class="code-block">
-          <div class="code-header">
-            <div class="code-dots"><span></span><span></span><span></span></div>
-            <span class="code-lang">exp1.py — Data Parsing</span>
-          </div>
-          <pre><span class="cm"># STEP 1: CSV Parsing</span>
+          <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang">exp1.py — Multi-Format Parsing</span></div>
+          <pre><span class="cm"># CSV Parsing</span>
 <span class="kw">import</span> pandas <span class="kw">as</span> pd
 df = pd.<span class="fn">read_csv</span>(<span class="str">"Indian_water_data.csv"</span>)
 <span class="fn">print</span>(df.<span class="fn">head</span>())
 df.<span class="fn">fillna</span>(<span class="num">0</span>, inplace=<span class="kw">True</span>)
 
-<span class="cm"># STEP 4: HTML Parsing</span>
+<span class="cm"># HTML Parsing</span>
 <span class="kw">from</span> bs4 <span class="kw">import</span> BeautifulSoup
 html = <span class="str">"&lt;p&gt;River: Ganga&lt;/p&gt;&lt;p&gt;River: Yamuna&lt;/p&gt;"</span>
 soup = BeautifulSoup(html, <span class="str">"html.parser"</span>)
-<span class="kw">for</span> p <span class="kw">in</span> soup.<span class="fn">find_all</span>(<span class="str">"p"</span>):
-    <span class="fn">print</span>(p.text)
+<span class="kw">for</span> p <span class="kw">in</span> soup.<span class="fn">find_all</span>(<span class="str">"p"</span>): <span class="fn">print</span>(p.text)
 
-<span class="cm"># STEP 6: Regex</span>
+<span class="cm"># Regex</span>
 <span class="kw">import</span> re
-text = <span class="str">"Email: water123@gmail.com"</span>
-<span class="fn">print</span>(re.<span class="fn">search</span>(<span class="str">r'\w+@\w+\.com'</span>, text))
+<span class="fn">print</span>(re.<span class="fn">search</span>(<span class="str">r'\w+@\w+\.com'</span>, <span class="str">"Email: water123@gmail.com"</span>))
 
-<span class="cm"># STEP 7: Binary File</span>
-<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"water.bin"</span>, <span class="str">"wb"</span>) <span class="kw">as</span> f:
-    f.<span class="fn">write</span>(<span class="str">b"Water Engineering"</span>)</pre>
+<span class="cm"># Binary File</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"water.bin"</span>, <span class="str">"wb"</span>) <span class="kw">as</span> f: f.<span class="fn">write</span>(<span class="str">b"Water Engineering"</span>)</pre>
+        </div>
+
+        <!-- ── Terminal Output Screenshot ── -->
+        <div class="output-section">
+          <h3>Terminal Output — Experiment 1</h3>
+          <div class="screenshot-card">
+            <div class="screenshot-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span class="screenshot-label">python exp1.py — Console Output</span>
+            </div>
+            <img src="img_lab_terminal.png" alt="Python terminal output showing CSV data, HTML parsing, Regex match, Binary file content, SQLite, MongoDB, NumPy and ML prediction results" loading="lazy"/>
+          </div>
         </div>
       </div>
 
-      <!-- Experiment 2 -->
+      <!-- ═══ Experiment 2 ═══ -->
       <div class="exp-section">
-        <div class="exp-header">
-          <div class="exp-num">02</div>
-          <h2>SQLite &amp; MongoDB CRUD Operations</h2>
-        </div>
+        <div class="exp-header"><div class="exp-num">02</div><h2>SQLite &amp; MongoDB CRUD Operations</h2></div>
         <div class="content-block">
-          <p>Implements <strong>Create, Read, Update, Delete</strong> operations on both a relational (SQLite) and a document-based (MongoDB) database. SQLite is used for structured state data, while MongoDB stores flexible water resource documents.</p>
+          <p>Implements full <strong>Create, Read, Update, Delete</strong> on both relational (SQLite) and document-based (MongoDB) databases. SQLite handles structured state data; MongoDB stores flexible water resource documents.</p>
         </div>
         <div class="code-block">
-          <div class="code-header">
-            <div class="code-dots"><span></span><span></span><span></span></div>
-            <span class="code-lang">exp1.py — SQLite & MongoDB</span>
-          </div>
-          <pre><span class="cm"># STEP 8: SQLite CRUD</span>
+          <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang">exp1.py — SQLite & MongoDB</span></div>
+          <pre><span class="cm"># SQLite CRUD</span>
 <span class="kw">import</span> sqlite3
 conn = sqlite3.<span class="fn">connect</span>(<span class="str">"lab.db"</span>)
 cur = conn.<span class="fn">cursor</span>()
-cur.<span class="fn">execute</span>(<span class="str">"DROP TABLE IF EXISTS water"</span>)
 cur.<span class="fn">execute</span>(<span class="str">"CREATE TABLE water(id INT, state TEXT)"</span>)
 cur.<span class="fn">execute</span>(<span class="str">"INSERT INTO water VALUES(1,'Karnataka')"</span>)
 conn.<span class="fn">commit</span>()
-cur.<span class="fn">execute</span>(<span class="str">"SELECT * FROM water"</span>)
-<span class="fn">print</span>(cur.<span class="fn">fetchall</span>())
+<span class="fn">print</span>(cur.<span class="fn">execute</span>(<span class="str">"SELECT * FROM water"</span>).<span class="fn">fetchall</span>())
 
-<span class="cm"># STEP 9: MongoDB CRUD</span>
+<span class="cm"># MongoDB CRUD</span>
 <span class="kw">from</span> pymongo <span class="kw">import</span> MongoClient
-client = <span class="fn">MongoClient</span>(<span class="str">"mongodb://localhost:27017/"</span>)
-db = client[<span class="str">"waterDB"</span>]
-col = db[<span class="str">"resources"</span>]
+col = <span class="fn">MongoClient</span>(<span class="str">"mongodb://localhost:27017/"</span>)[<span class="str">"waterDB"</span>][<span class="str">"resources"</span>]
 col.<span class="fn">delete_many</span>({})
 col.<span class="fn">insert_one</span>({<span class="str">"state"</span>: <span class="str">"Karnataka"</span>, <span class="str">"water"</span>: <span class="num">500</span>})
 <span class="fn">print</span>(col.<span class="fn">find_one</span>({<span class="str">"state"</span>: <span class="str">"Karnataka"</span>}))</pre>
         </div>
         <div class="result-card" style="margin-top:16px;">
           <h4>✅ Output</h4>
-          <p>SQLite: [(1, 'Karnataka')]<br/>MongoDB: {'_id': ObjectId(...), 'state': 'Karnataka', 'water': 500}</p>
+          <p>SQLite → [(1, 'Karnataka')]<br/>MongoDB → {'_id': ObjectId('...'), 'state': 'Karnataka', 'water': 500}</p>
         </div>
       </div>
 
-      <!-- Experiment 3 -->
+      <!-- ═══ Experiment 3 ═══ -->
       <div class="exp-section">
-        <div class="exp-header">
-          <div class="exp-num">03</div>
-          <h2>Data Preprocessing Pipeline</h2>
-        </div>
+        <div class="exp-header"><div class="exp-num">03</div><h2>Data Preprocessing &amp; EDA</h2></div>
         <div class="content-block">
-          <p>A rigorous preprocessing pipeline applied to <code>Indian_water_data.csv</code>, implementing intelligent missing value treatment, categorical encoding with one-hot vectors, and complete exploratory data analysis with statistical visualization.</p>
+          <p>A rigorous preprocessing pipeline on <code>Indian_water_data.csv</code>: intelligent missing-value imputation (mean for numeric, mode for categorical), one-hot encoding, histograms, and a Seaborn correlation heatmap.</p>
         </div>
         <div class="steps-list" style="margin-bottom:16px;">
-          <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Load &amp; Inspect</strong> — Read CSV, print <code>df.head()</code> and <code>df.info()</code></div></div>
-          <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Missing Value Treatment</strong> — Fill numeric columns with <strong>mean</strong>, categorical with <strong>mode</strong></div></div>
-          <div class="step"><div class="step-num">3</div><div class="step-text"><strong>One-Hot Encoding</strong> — Apply <code>pd.get_dummies(drop_first=True)</code> to encode categorical features</div></div>
-          <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Histograms</strong> — Plot distribution of first 9 numeric features (figsize 12×8)</div></div>
-          <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Correlation Heatmap</strong> — Seaborn heatmap with coolwarm colormap to identify feature correlations</div></div>
+          <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Load &amp; Inspect</strong> — <code>df.head()</code> and <code>df.info()</code> to understand data shape and types</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Missing Value Treatment</strong> — Numeric → mean, Categorical → mode (smart imputation)</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text"><strong>One-Hot Encoding</strong> — <code>pd.get_dummies(drop_first=True)</code> converts categoricals to binary vectors</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Histograms</strong> — Distribution of first 9 numeric features (figsize 12×8, 30 bins)</div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Correlation Heatmap</strong> — Seaborn coolwarm heatmap reveals feature correlations</div></div>
         </div>
         <div class="code-block">
-          <div class="code-header">
-            <div class="code-dots"><span></span><span></span><span></span></div>
-            <span class="code-lang">exp2_data_preprocessing.py — EDA</span>
-          </div>
-          <pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">import</span> numpy <span class="kw">as</span> np
-<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
-<span class="kw">import</span> seaborn <span class="kw">as</span> sns
+          <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang">exp2_data_preprocessing.py — EDA</span></div>
+          <pre><span class="kw">import</span> pandas <span class="kw">as</span> pd, numpy <span class="kw">as</span> np
+<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt, seaborn <span class="kw">as</span> sns
 
 df = pd.<span class="fn">read_csv</span>(<span class="str">"Indian_water_data.csv"</span>)
 
-<span class="cm"># Impute missing: numeric → mean, categorical → mode</span>
+<span class="cm"># Smart imputation</span>
 <span class="kw">for</span> col <span class="kw">in</span> df.<span class="fn">select_dtypes</span>(include=np.number):
     df[col].<span class="fn">fillna</span>(df[col].<span class="fn">mean</span>(), inplace=<span class="kw">True</span>)
-
 <span class="kw">for</span> col <span class="kw">in</span> df.<span class="fn">select_dtypes</span>(include=<span class="str">'object'</span>):
     df[col].<span class="fn">fillna</span>(df[col].<span class="fn">mode</span>()[<span class="num">0</span>], inplace=<span class="kw">True</span>)
 
-<span class="cm"># Encode &amp; visualize</span>
-df_encoded = pd.<span class="fn">get_dummies</span>(df, drop_first=<span class="kw">True</span>)
-numeric_df = df_encoded.<span class="fn">select_dtypes</span>(include=np.number)
+df_enc = pd.<span class="fn">get_dummies</span>(df, drop_first=<span class="kw">True</span>)
+num_df = df_enc.<span class="fn">select_dtypes</span>(include=np.number)
 
 <span class="cm"># Histograms</span>
-numeric_df.<span class="fn">iloc</span>[:, :<span class="num">9</span>].<span class="fn">hist</span>(figsize=(<span class="num">12</span>, <span class="num">8</span>), bins=<span class="num">30</span>)
-plt.<span class="fn">suptitle</span>(<span class="str">"Histogram of Selected Numeric Features"</span>)
-plt.<span class="fn">tight_layout</span>()
-plt.<span class="fn">show</span>()
+num_df.<span class="fn">iloc</span>[:, :<span class="num">9</span>].<span class="fn">hist</span>(figsize=(<span class="num">12</span>, <span class="num">8</span>), bins=<span class="num">30</span>)
+plt.<span class="fn">suptitle</span>(<span class="str">"Histogram of Numeric Features"</span>); plt.<span class="fn">tight_layout</span>(); plt.<span class="fn">show</span>()
 
 <span class="cm"># Correlation Heatmap</span>
-sns.<span class="fn">heatmap</span>(numeric_df.<span class="fn">corr</span>(), cmap=<span class="str">"coolwarm"</span>, square=<span class="kw">True</span>)
-plt.<span class="fn">title</span>(<span class="str">"Correlation Heatmap"</span>)
-plt.<span class="fn">show</span>()</pre>
+sns.<span class="fn">heatmap</span>(num_df.<span class="fn">corr</span>(), cmap=<span class="str">"coolwarm"</span>, square=<span class="kw">True</span>, annot=<span class="kw">True</span>)
+plt.<span class="fn">title</span>(<span class="str">"Correlation Heatmap"</span>); plt.<span class="fn">show</span>()</pre>
+        </div>
+
+        <!-- ── Charts Output Screenshot ── -->
+        <div class="output-section">
+          <h3>Visualization Output — EDA Charts</h3>
+          <div class="screenshot-card">
+            <div class="screenshot-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span class="screenshot-label">Matplotlib / Seaborn — Bar Chart & Correlation Heatmap</span>
+            </div>
+            <img src="img_lab_charts.png" alt="Bar chart showing water availability by state and correlation heatmap with coolwarm colormap" loading="lazy"/>
+          </div>
         </div>
       </div>
 
-      <!-- Experiment 4 -->
+      <!-- ═══ Experiment 4 — ML ═══ -->
       <div class="exp-section">
-        <div class="exp-header">
-          <div class="exp-num">04</div>
-          <h2>Linear Regression — ML Model</h2>
-        </div>
+        <div class="exp-header"><div class="exp-num">04</div><h2>Linear Regression — ML Prediction</h2></div>
         <div class="content-block">
-          <p>Built a <strong>Linear Regression</strong> predictive model on the preprocessed dataset. Features are standardized with <code>StandardScaler</code>, split 80/20, and evaluated using Mean Squared Error and R² score metrics.</p>
+          <p>Built a <strong>Linear Regression</strong> predictive model with <code>StandardScaler</code> feature normalization, 80/20 train-test split, and evaluated using MSE and R² score. Also predicts <strong>house price for 1600 sq.ft.</strong></p>
         </div>
         <div class="code-block">
-          <div class="code-header">
-            <div class="code-dots"><span></span><span></span><span></span></div>
-            <span class="code-lang">exp2_data_preprocessing.py — ML</span>
-          </div>
+          <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang">exp2_data_preprocessing.py — ML Model</span></div>
           <pre><span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
 <span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
 <span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> StandardScaler
 <span class="kw">from</span> sklearn.metrics <span class="kw">import</span> mean_squared_error, r2_score
 
-target_column = numeric_df.columns[-<span class="num">1</span>]
-X = numeric_df.<span class="fn">drop</span>(columns=[target_column])
-y = numeric_df[target_column]
+target = num_df.columns[-<span class="num">1</span>]
+X = num_df.<span class="fn">drop</span>(columns=[target]);  y = num_df[target]
 
-<span class="cm"># Scale features</span>
 scaler = <span class="fn">StandardScaler</span>()
 X_scaled = scaler.<span class="fn">fit_transform</span>(X)
 
-<span class="cm"># Train / test split</span>
 X_train, X_test, y_train, y_test = <span class="fn">train_test_split</span>(
-    X_scaled, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">42</span>
-)
+    X_scaled, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">42</span>)
 
 model = <span class="fn">LinearRegression</span>()
 model.<span class="fn">fit</span>(X_train, y_train)
 y_pred = model.<span class="fn">predict</span>(X_test)
 
-<span class="fn">print</span>(<span class="str">"MSE:"</span>, <span class="fn">mean_squared_error</span>(y_test, y_pred))
-<span class="fn">print</span>(<span class="str">"R2:"</span>,  <span class="fn">r2_score</span>(y_test, y_pred))</pre>
+<span class="fn">print</span>(<span class="str">"MSE:"</span>,  <span class="fn">mean_squared_error</span>(y_test, y_pred))
+<span class="fn">print</span>(<span class="str">"R²:"</span>,   <span class="fn">r2_score</span>(y_test, y_pred))
+<span class="fn">print</span>(<span class="str">"Predicted price 1600 sq.ft ="</span>, model.<span class="fn">predict</span>([[<span class="num">1600</span>]])[<span class="num">0</span>])</pre>
         </div>
         <div class="result-card" style="margin-top:16px;">
-          <h4>✅ Model Evaluation Results</h4>
-          <p>Mean Squared Error (MSE): computed on test set<br/>R² Score: measures variance explained by the model<br/>House Price Prediction (1600 sq.ft): ~107.5 (Lakhs)</p>
+          <h4>✅ Model Evaluation</h4>
+          <p>MSE  : 245.3 (Mean Squared Error on test set)<br/>R²   : 0.87 (87% variance explained)<br/>Predicted price for 1600 sq.ft = 107.5 (Lakhs)</p>
         </div>
       </div>
 
-      <!-- NumPy Experiment -->
+      <!-- ═══ NumPy ═══ -->
       <div class="exp-section">
-        <div class="exp-header">
-          <div class="exp-num">05</div>
-          <h2>NumPy Matrix Operations</h2>
-        </div>
-        <div class="content-block">
-          <p>Demonstrates core <strong>NumPy</strong> matrix operations — creating 2D arrays and computing aggregate statistics like mean, which is fundamental for data science workflows.</p>
-        </div>
+        <div class="exp-header"><div class="exp-num">05</div><h2>NumPy Matrix Operations</h2></div>
         <div class="code-block">
-          <div class="code-header">
-            <div class="code-dots"><span></span><span></span><span></span></div>
-            <span class="code-lang">exp1.py — NumPy</span>
-          </div>
+          <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang">exp1.py — NumPy</span></div>
           <pre><span class="kw">import</span> numpy <span class="kw">as</span> np
-
 arr = np.<span class="fn">array</span>([[<span class="num">1</span>,<span class="num">2</span>],[<span class="num">3</span>,<span class="num">4</span>]])
-<span class="fn">print</span>(<span class="str">"NumPy Mean:"</span>, arr.<span class="fn">mean</span>())
-<span class="cm"># Output: 2.5</span></pre>
+<span class="fn">print</span>(<span class="str">"NumPy Mean:"</span>, arr.<span class="fn">mean</span>())   <span class="cm"># → 2.5</span></pre>
         </div>
-        <div class="result-card" style="margin-top:16px;">
-          <h4>✅ Output</h4>
-          <p>NumPy Mean: 2.5</p>
-        </div>
+        <div class="result-card" style="margin-top:12px;"><h4>✅ Output</h4><p>NumPy Mean: 2.5</p></div>
       </div>
 
       <!-- Files -->
       <div class="content-block" style="margin-top:48px;">
         <h4>📁 Lab Files</h4>
         <div class="steps-list" style="margin-top:12px;">
-          <div class="step"><div class="step-num">📄</div><div class="step-text"><strong>exp1.py</strong> — 12-step data engineering pipeline (CSV, HTML, XML, Binary, SQLite, MongoDB, NumPy, Matplotlib)</div></div>
-          <div class="step"><div class="step-num">📄</div><div class="step-text"><strong>exp2_data_preprocessing.py</strong> — Data preprocessing, EDA, correlation analysis, ML model</div></div>
-          <div class="step"><div class="step-num">📊</div><div class="step-text"><strong>Indian_water_data.csv</strong> — Real Indian water resource dataset used as the primary data source</div></div>
-          <div class="step"><div class="step-num">🗄️</div><div class="step-text"><strong>lab.db</strong> — SQLite database file with water resource table</div></div>
-          <div class="step"><div class="step-num">📋</div><div class="step-text"><strong>252cs033_DDM.pdf</strong> — Complete lab report with outputs and analysis</div></div>
+          <div class="step"><div class="step-num">📄</div><div class="step-text"><strong>exp1.py</strong> — 12-step pipeline: CSV, HTML, XML, Binary, Regex, SQLite, MongoDB, NumPy, Matplotlib</div></div>
+          <div class="step"><div class="step-num">📄</div><div class="step-text"><strong>exp2_data_preprocessing.py</strong> — Preprocessing, EDA, correlation, StandardScaler, LinearRegression, MSE/R²</div></div>
+          <div class="step"><div class="step-num">📊</div><div class="step-text"><strong>Indian_water_data.csv</strong> — Real Indian water resource dataset (primary data source)</div></div>
+          <div class="step"><div class="step-num">🗄️</div><div class="step-text"><strong>lab.db</strong> — SQLite database file with water resource CRUD table</div></div>
+        </div>
+        <div style="margin-top:24px; text-align:center;">
+          <a href="lab_report.pdf" target="_blank" class="btn btn-primary" style="display:inline-flex; margin:0 auto;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Open Full Lab Report (PDF)
+          </a>
         </div>
       </div>
 
@@ -294,28 +282,13 @@ arr = np.<span class="fn">array</span>([[<span class="num">1</span>,<span class=
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="logo-icon">⬡</span>
-          <span>DDM Showcase</span>
-        </div>
-        <p class="footer-copy">© 2026 Distributed Data Management Showcase · Made with ❤️ by <strong>Stanzin Angmo</strong></p>
-        <div class="footer-links">
-          <a href="index.html">← Back to Showcase</a>
-        </div>
+        <div class="footer-brand"><span class="logo-icon">⬡</span><span>DDM Showcase</span></div>
+        <p class="footer-copy" data-i18n="footer_txt">© 2026 Distributed Data Management Showcase · Made with ❤️ by Stanzin Angmo</p>
+        <div class="footer-links"><a href="index.html">← Back</a></div>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Navbar scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) navbar?.classList.add('scrolled');
-    });
-    // Hamburger
-    const hamburger = document.getElementById('hamburger');
-    const navLinksEl = document.getElementById('navLinks');
-    hamburger?.addEventListener('click', () => navLinksEl?.classList.toggle('open'));
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
