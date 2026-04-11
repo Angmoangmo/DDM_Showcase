@@ -3,7 +3,7 @@
 > A premium showcase website for Distributed Data Management course assignments.
 
 ## 🔗 Live Site
-[View on GitHub Pages](https://stanzinangmo.github.io/DDM_Showcase/)
+[View on GitHub Pages](https://angmoangmo.github.io/DDM_Showcase/)
 
 ## 📁 Structure
 ```
