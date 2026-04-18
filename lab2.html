@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lab 02 — Big Data & Hadoop | DDM Showcase</title>
+  <meta name="description" content="Lab 02: Big Data Hadoop Processing — DataNodes, MapReduce, Hive Analytics, and Visualizations on large-scale datasets."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><span class="logo-icon">⬡</span><span>DDM</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home"        class="nav-link" data-i18n="nav_home">Home</a></li>
+        <li><a href="index.html#about"       class="nav-link" data-i18n="nav_about">About</a></li>
+        <li><a href="index.html#assignments" class="nav-link" data-i18n="nav_assignments">Assignments</a></li>
+        <li><a href="index.html#skills"      class="nav-link" data-i18n="nav_skills">Skills</a></li>
+      </ul>
+      <div class="lang-selector">
+        <button class="lang-btn" id="langBtn" aria-label="Choose Language">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          <span id="langLabel">EN</span>
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-option active" data-lang="en"><span class="lang-flag">🌐</span><span class="lang-native">English</span><span class="lang-en">Default</span></button>
+          <button class="lang-option" data-lang="hi"><span class="lang-flag">🇮🇳</span><span class="lang-native">हिंदी</span></button>
+          <button class="lang-option" data-lang="kn"><span class="lang-flag">🇮🇳</span><span class="lang-native">ಕನ್ನಡ</span></button>
+          <button class="lang-option" data-lang="lad"><span class="lang-flag">🏔️</span><span class="lang-native">ལ་དྭགས</span></button>
+          <button class="lang-option" data-lang="ml"><span class="lang-flag">🇮🇳</span><span class="lang-native">മലയാളം</span></button>
+          <button class="lang-option" data-lang="gu"><span class="lang-flag">🇮🇳</span><span class="lang-native">ગુજરાતી</span></button>
+          <button class="lang-option" data-lang="bn"><span class="lang-flag">🇮🇳</span><span class="lang-native">বাংলা</span></button>
+          <button class="lang-option" data-lang="ur"><span class="lang-flag">🌙</span><span class="lang-native">اردو</span></button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ── Inner Hero ── -->
+  <section class="inner-hero">
+    <a href="index.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span data-i18n="nav_home">Home</span>
+    </a>
+    <div class="card-badge lab" style="margin-bottom:16px;" data-i18n="card3_badge">Lab 02</div>
+    <h1 class="inner-title"><span data-i18n="card3_title">Big Data & <span class="gradient-text">Hadoop Processing</span></span></h1>
+    <p class="inner-sub" data-i18n="card3_sub">MapReduce & Analytics</p>
+    <div class="inner-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <strong>2026</strong>
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <strong>Hadoop · MapReduce · HDFS</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Lab Content ── -->
+  <div class="lab-content">
+    <div class="container">
+
+      <!-- Overview -->
+      <div class="content-block" style="margin-bottom:40px;">
+        <h4>📋 Lab Overview</h4>
+        <p>This lab demonstrates a comprehensive Big Data processing pipeline using the <strong>Apache Hadoop ecosystem</strong>. It covers the setup of HDFS DataNodes, executing distributed MapReduce jobs on large-scale datasets, and visualizing the output data representing water quality violations.</p>
+      </div>
+
+      <!-- ═══ Experiment 1 ═══ -->
+      <div class="exp-section">
+        <div class="exp-header"><div class="exp-num">01</div><h2>Hadoop Node Configuration</h2></div>
+        <div class="content-block">
+          <p>The first step in our distributed architecture was setting up the Hadoop cluster, configuring the NameNode, and ensuring active DataNodes for HDFS storage layer reliability.</p>
+        </div>
+        <div class="output-section">
+          <h3>Terminal Console — DataNode Health</h3>
+          <div class="screenshot-card">
+            <div class="screenshot-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span class="screenshot-label">hadoop dfsadmin -report</span>
+            </div>
+            <img src="img_lab2_datanode.png" alt="Hadoop terminal output showing active datanodes and HDFS capacity" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ Experiment 2 ═══ -->
+      <div class="exp-section">
+        <div class="exp-header"><div class="exp-num">02</div><h2>MapReduce Job Execution</h2></div>
+        <div class="content-block">
+          <p>Processing the data involved writing Map functions to filter input streams and Reduce functions to aggregate violation counts across different states and zones.</p>
+        </div>
+        <div class="code-block" style="margin-bottom: 24px;">
+          <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang">Mapper Example (Conceptual)</span></div>
+          <pre><span class="kw">public class</span> ViolationMapper <span class="kw">extends</span> Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
+    <span class="kw">public void</span> <span class="fn">map</span>(LongWritable key, Text value, Context context) {
+        String[] columns = value.<span class="fn">toString</span>().<span class="fn">split</span>(<span class="str">","</span>);
+        <span class="kw">if</span> (columns[<span class="num">4</span>].<span class="fn">equals</span>(<span class="str">"VIOLATION"</span>)) {
+            context.<span class="fn">write</span>(<span class="kw">new</span> Text(columns[<span class="num">1</span>]), <span class="kw">new</span> IntWritable(<span class="num">1</span>));
+        }
+    }
+}</pre>
+        </div>
+        <div class="output-section">
+          <h3>MapReduce Job Monitor Overview</h3>
+          <div class="screenshot-card">
+            <div class="screenshot-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span class="screenshot-label">Hadoop Resource Manager UI</span>
+            </div>
+            <img src="img_lab2_overview.png" alt="Hadoop UI overview showing running MapReduce Jobs and their status" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ Experiment 3 ═══ -->
+      <div class="exp-section">
+        <div class="exp-header"><div class="exp-num">03</div><h2>Output & Visualizations</h2></div>
+        <div class="content-block">
+          <p>After the distributed processing completed, the aggregated output was queried using Hive and visualized via a charting pipeline to represent the findings intuitively.</p>
+        </div>
+        <div class="output-section">
+          <h3>Visualization — Water Quality Violations</h3>
+          <div class="screenshot-card">
+            <div class="screenshot-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <span class="screenshot-label">Bar Chart Output</span>
+            </div>
+            <img src="img_lab2_chart.png" alt="Bar chart output of violations data aggregated by the Hadoop pipeline" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-icon">⬡</span><span>DDM Showcase</span></div>
+        <p class="footer-copy" data-i18n="footer_txt">© 2026 Distributed Data Management Showcase · Made with ❤️ by Stanzin Angmo</p>
+        <div class="footer-links"><a href="index.html">← Back</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
